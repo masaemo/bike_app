@@ -1,0 +1,22 @@
+<h2>
+  サイトタイトル
+ <%= link_to '記事を投稿する', new_post_path, class: 'header-menu' %>
+</h2>
+
+<ul>
+  <% @posts.each do |post| %>
+  <li>
+  <%= link_to post.title, post_path(post.id)%>
+  <%= link_to '[編集]', edit_post_path(post),class:'command'%>
+  <%= link_to '[削除]',
+     post_path(post),
+     method: :delete,
+     class: 'command',
+     data: {confirm:'記事を削除しますか？'} %>
+  </li>
+  <%end%>
+</ul>
+
+<h2>
+
+</h2>
